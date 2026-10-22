@@ -23,6 +23,9 @@ jobs:
         with:
           gradle-version: '8.10.2'
 
+      - name: Check Android Manifest XML
+        run: python3 -c "import xml.etree.ElementTree as ET; ET.parse('app/src/main/AndroidManifest.xml'); print('Manifest XML OK')"
+
       - name: Build APK
         run: gradle assembleDebug --stacktrace
 
